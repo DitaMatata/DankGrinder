@@ -17,7 +17,7 @@ red = fg(1)
 green = fg(2)
 root = tk.Tk()
 root.withdraw()
-__version__ = '1.3'
+__version__ = '1.4'
 _AppName_ = "DankGrinder"
 
 def download_file(url, filename=''):
@@ -48,7 +48,7 @@ try:
         messagebox.showinfo('Software Update', 'Update Available!')
         mb1 = messagebox.askyesno('Update!', fr'Do you want to update to v{data}?')
         if mb1 is True:
-            downloadLink = 'https://github.com/DitaMatata/DankGrinder/releases/download/v1.2/DankGrinder.-.v1.4.exe'
+            downloadLink = 'https://github.com/DitaMatata/DankGrinder/releases/download/v1.2/DankGrinder.-.v1.5.exe'
             download_file(downloadLink, 'DankGrinder - v1.4.exe')
             sys.exit()
         elif mb1 == False:
@@ -69,11 +69,25 @@ print(stylize("""
 \t\t╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝     ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝                                                                                          
 """, red))
 
-
+check = input(f"{r2}Do you have a previous save file? [Enter y or n] ")
+if check == 'y' or check == 'Y':
+    a = open("tokenandid.txt", "r")
+    x = a.read().split(":")
+    token = x[0]
+    channel = x[1]
+    print(token + channel)
+    a.close()
+else: 
+    save = input(f"{r2}Do you want to save your token and id? [Enter y or n] ")
+    token = input(f"{r2}[{b}?{r2}] Token: ")
+    channel = input(f"{r2}[{b}?{r2}] Channel Id: ")
+    if save == 'y' or save == 'Y':
+        a = open("tokenandid.txt", "w+")
+        a.write(f'{token}:{channel}')
+        a.close()
+    else:
+        pass
 PERIOD_OF_TIME = int(input(f"{r2}[{b}?{r2}] Time in seconds: "))
-token = input(f"{r2}[{b}?{r2}] Token: ")
-channel = input(f"{r2}[{b}?{r2}] Channel Id: ")
-
 while True:    
     startime = time.time()
     def execute_command(command = "", cooldown = 0):
