@@ -46,7 +46,7 @@ try:
 
     if float(data) > float(__version__):
         messagebox.showinfo('Software Update', 'Update Available!')
-        mb1 = messagebox.askyesno('Update!', fr'Do you want to update to v{data}?')
+        mb1 = messagebox.askyesno('Update!', f'Do you want to update to v{data}?')
         if mb1 is True:
             downloadLink = 'https://github.com/DitaMatata/DankGrinder/releases/download/v1.2/DankGrinder.-.v1.5.exe'
             download_file(downloadLink, 'DankGrinder - v1.5.exe')
