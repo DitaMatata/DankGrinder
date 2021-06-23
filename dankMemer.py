@@ -49,7 +49,7 @@ try:
         mb1 = messagebox.askyesno('Update!', fr'Do you want to update to v{data}?')
         if mb1 is True:
             downloadLink = 'https://github.com/DitaMatata/DankGrinder/releases/download/v1.2/DankGrinder.-.v1.5.exe'
-            download_file(downloadLink, 'DankGrinder - v1.4.exe')
+            download_file(downloadLink, 'DankGrinder - v1.5.exe')
             sys.exit()
         elif mb1 == False:
             os.system("cls")
